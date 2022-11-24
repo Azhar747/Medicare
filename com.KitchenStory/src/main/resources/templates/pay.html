@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+<head>
+<style>
+body {
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	background-color: #F0EEEE;
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	max-width: 100%;
+}
+table, td, th {
+	border-bottom: 1px solid rgb(184, 184, 184);
+}
+
+th {
+	background-color: #0080FF;
+	color: white;
+	height: 30px;
+}
+
+table {
+	border-collapse: collapse;
+	margin-top: 40px;
+	width: 100%;
+}
+
+tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+
+tr {
+	height: 30px;
+	width: 500px;
+}
+
+td {
+	text-align: center;
+	width: 500px;
+}
+
+
+.link {
+	color: #0080FF;
+	font-size: 15px;
+	text-align: left;
+	text-decoration: underline;
+}
+
+ul {
+	margin: 0px;
+	padding: 20px;
+	margin-top: 0px;
+	margin-left: 0px;
+	width: 100%;
+	background-color: #0080FF;
+}
+
+li {
+	display: inline;
+}
+
+a {
+	text-decoration: none;
+	padding: 10px;
+	margin: 0px;
+	color: white;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.actions {
+	display: inline-block;
+	border-radius: 7px;
+	box-sizing: border-box;
+	background-color: #0080FF;
+	color: white;
+	height: 30px;
+	width: 100px;
+	border: 0px;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.checkout {
+	display: inline-block;
+	border-radius: 7px;
+	box-sizing: border-box;
+	background-color: #0080FF;
+	color: white;
+	height: 30px;
+	width: 150px;
+	border: 0px;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.cart {
+	margin-left: 900px;
+	max-width: 100%;
+}
+
+.images {
+	display: inline;
+	width: 250px;
+	height: 250px;
+	margin-right: 500px;
+	width: 180px;
+	max-width: 100%;
+}
+
+.wrapper {
+	display: grid;
+	grid-gap: 10px;
+	margin-top: 10px;
+	margin-left: 70px;
+	grid-template-columns: repeat(6, [ col ] 200px);
+	grid-template-rows: repeat(1, [ row ] auto);
+}
+
+.a {
+	grid-column: col 1/span 4;
+	background: white;
+	border-radius: 3px;
+}
+
+a {
+	display: inline;
+}
+
+.cat {
+	display: inline;
+	margin: 100px;
+}
+
+.cat-links {
+	font-size: 13px;
+	color: #0080FF;
+}
+
+form {
+	display: inline;
+}
+
+h3 {
+	margin-left: 60px;
+}
+
+.selop {
+	width: 200px;
+	height: 25px;
+	border-radius: 4px;
+	margin-left: 20px;
+}
+
+.total-Amount {
+	margin: 0px;
+}
+
+input {
+	height: 20px;
+	width: 200px;
+	padding: 0px;
+	margin-right: 100px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.billing {
+	font-weight: bold;
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	padding-top: 50px;
+}
+
+.billing_body {
+	font-weight: bold;
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+}
+
+h2 {
+	text-align: center;
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
+
+h4{
+text-align: center;
+font-weight: normal;
+}
+.date{
+font-family: Geneva, Arial, Helvetica, sans-serif;
+font-weight: bold;
+font-size: 15px;
+padding-top: 10px;
+}
+</style>
+</head>
+<body>
+	<ul>
+		<li><a href="Login"><img
+				src="C:\Users\RIFKAN MA\Downloads\images.jpg" alt="Logo"
+				style="width: 42px; height: 42px;"></a></li>
+		<li><a href="/shop">Shop</a></li>
+		<li><a href="/">Logout</a></li>
+
+		<li><a class="cart" href="/cart">Cart</a></li>
+
+	</ul>
+	<div class="wrapper">
+
+
+		<div class="a" >
+		    <span class="date" th:text="'Date  :'+${localDate}"></span><br>
+		    <span class="date" th:text="'OrderID :'+${orderid} "></span>
+			<h2>Sporty Shoes Pvt Ltd</h2>
+			<h4>Banglore,India GSTIN:36AB484546845JHIG</h4>
+			<h2>Receipt</h2>
+			
+				<table>
+		<tr >
+			<th>SN</th>
+			<th>Product Name</th>
+			<th>Description</th>
+			<th>Price</th>
+
+        <tr th:block th:each="Product : ${listprd}">
+           <td th:text="${Product.getID()}"> </td>
+           <td th:text="${Product.getName()}"></td>
+           <td th:text="${Product.getDescription()}"> </td>
+           <td th:text="${Product.getPrice()}"></td>
+           
+        </tr>
+
+
+	</table>
+
+        <h5 th:text=" 'Amount Paid :'+${total}"></h5>
+		</div>
+			
+			
+			<p ></p>
+		</div>
+
+
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<style>
+body {
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	background-color: #F0EEEE;
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	max-width: 100%;
+}
+
+.link {
+	color: #0080FF;
+	font-size: 15px;
+	text-align: left;
+	text-decoration: underline;
+}
+
+ul {
+	margin: 0px;
+	padding: 20px;
+	margin-top: 0px;
+	margin-left: 0px;
+	width: 100%;
+	background-color: #0080FF;
+}
+
+li {
+	display: inline;
+}
+
+a {
+	text-decoration: none;
+	padding: 10px;
+	margin: 0px;
+	color: white;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.actions {
+	display: inline-block;
+	border-radius: 7px;
+	box-sizing: border-box;
+	background-color: #0080FF;
+	color: white;
+	height: 30px;
+	width: 100px;
+	border: 0px;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.cart {
+	margin-left: 650px;
+	max-width: 100%;
+}
+
+.images {
+	display: inline;
+	width: 300px;
+	height: 250px;
+	margin-right: 500px;
+	width: 180px;
+	max-width: 100%;
+}
+
+.grid-container2 {
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	display: grid;
+	grid-template-columns: 50% ;
+	gap: 10px;
+	padding: 10px;
+	grid-auto-flow: row;
+	margin-left: 500px;
+	margin-top: 70px;
+	
+}
+
+.grid-container2>div {
+	background-color: white;
+	border-radius: 4px;
+	padding: 30px;
+	text-align: left;
+	max-width: 100%;
+	align-self: start;
+}
+
+
+
+a {
+	display: inline;
+}
+
+.cat {
+	display: inline;
+	margin: 100px;
+}
+
+.cat-links {
+	font-size: 13px;
+	color: #0080FF;
+}
+
+form {
+	display: inline;
+}
+
+h3 {
+	margin-left: 60px;
+}
+
+.selop {
+	width: 200px;
+	height: 25px;
+	border-radius: 4px;
+	margin-left: 20px;
+}
+.actions {
+	display: inline-block;
+	border-radius: 7px;
+	box-sizing: border-box;
+	background-color: #0080FF;
+	margin-top:10px;
+	color: white;
+	height: 30px;
+	width: 100px;
+	border: 0px;
+	font-size: 12px;
+	font-weight: bold;
+}
+input{
+border-radius: 3px;
+}
+</style>
+
+
+<body>
+<form class="grid-container2 " action="confirmpass" method="post">
+<div>
+<span>Enter the Username    : </span><input type="text" name="username"><br>
+<span>Enter the old Password:</span><input type="text" name="oldpass"><br>
+<span>Enter the New Password:</span><input type="text" name="newpass"><br>
+<input class="actions" type="submit" value="Submit">
+</div>
+</form>
+
+</body>
+</html>
