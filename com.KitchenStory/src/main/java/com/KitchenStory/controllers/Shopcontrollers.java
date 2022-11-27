@@ -65,17 +65,17 @@ public class Shopcontrollers {
 		return "viewproduct.html";
 	}
 
-	@PostMapping("/searchprdbycat")
-	public String serprdbycat(@RequestParam("listcat") Category id, Model m) {
+	@PostMapping("/searchprd")
+	public String serprdbycat(@RequestParam("listprd") String keyword, Model m) {
 
 		List<Category> listcat = new ArrayList<>();
-
+        System.out.println( "the keyword is " +keyword);
 		listcat = catser.getallcat();
 		m.addAttribute("listcat", listcat);
 
-		int id2 = id.getID();
-		List<Product> listprd = prdser.getprdbycat(id2);
+		List<Product> listprd = prdser.findbykeyword(keyword);
 		Path imgpath = Paths.get(uploadDir);
+		m.addAttribute("cartCount", CartSize.cart.size());
 		m.addAttribute("uploadDir", imgpath);
 		m.addAttribute("listprd", listprd);
 		return "Shop.html";

@@ -169,12 +169,10 @@ h3 {
 		<li>
 
 
-			<form action="searchprdbycat " method="post">
-				<select class="selop" name="listcat">
-					<option th:each="Category : ${listcat}"
-						th:text="${Category.getName()}" th:value="${Category.getID()}"></option>
-
-				</select> <input type="submit" value="Search Category">
+			<form action="searchprd " method="post">
+				
+				<input class="search-field" type="text"  name="listprd" th:value="${keyword}" placeholder="Search Item">
+				<input type="submit" value="Search Item">
 			</form>
 		</li>
 

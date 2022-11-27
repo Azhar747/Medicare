@@ -45,5 +45,9 @@ public class Productservice {
 	public void removeProductById(Long id) { 
 		prdrepo.deleteById(id);
 	}
+	
+	public List<Product> findbykeyword(String keyword) {
+		return prdrepo.findbykeyword(keyword);
+	}
 
 }
