@@ -1,0 +1,178 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.thymeleaf.org ">
+
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<title>Medicare</title>
+
+<style>
+.butt {
+	margin-left: 25px;
+	margin-top: 25px;
+}
+
+.container {
+	margin-left: 0px;
+	margin-top: 5px;
+}
+
+.row {
+	
+}
+
+.space {
+	background-color: #e6e6e6;
+	padding: 20px;
+	margin-top: 2px;
+}
+
+.images {
+	margin-bottom: 10px;
+}
+
+.price {
+	font-weight: bold;
+	font-size: 24px;
+}
+
+.num {
+	font: white;
+}
+
+.images {
+	display: inline;
+	width: 300px;
+	height: 250px;
+	margin-right: 500px;
+	width: 180px;
+	max-width: 100%;
+}
+.billing{
+font-weight: bold;
+font-size: 20px;
+}
+.billing_body{
+font-weight: bold;
+font-size: 17px;
+margin-top: 10px;
+}
+
+.color{
+background-color:  #e6e6e6;
+}
+ .price{
+        font-weight: bold;
+        font-size: 24px;
+        padding:3px;
+        margin-bottom: 5px;
+        }
+  .align{
+   text-align: center;
+  }
+</style>
+</head>
+
+
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+		<a class="navbar-brand" href="#">Medicare</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarTogglerDemo02"
+			aria-controls="navbarTogglerDemo02" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+			<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+
+				<li class="nav-item"><a class="nav-link" href="/shop">Shop<span
+						class="sr-only">(current)</span></a></li>
+				<li class="nav-item "><a class="nav-link" href="/">Logout<span
+						class="sr-only">(current)</span></a></li>
+			</ul>
+
+		</div>
+	</nav>
+	<div class="container">
+		<div class="row">
+
+			<div class="col-md-8">
+				    <span class="date" th:text="'Date  :'+${localDate}"></span><br>
+		    <span class="date" th:text="'OrderID :'+${orderid} "></span>
+			<h2 class="align">Medicare Pvt ltd</h2>
+			<h4 class="align"> Banglore,India GSTIN:36AB484546845JHIG</h4>
+			<h2 class="align">Receipt</h2>
+			
+		<table class="table table-striped ">
+		<thead class="thead-dark">
+		   <tr >
+			<th>SN</th>
+			<th>Product Name</th>
+			<th>Description</th>
+			<th>Price</th>
+			
+	        </tr>
+	     </thead>
+		
+			
+        <tbody>
+        <tr th:block th:each="Product : ${listprd}">
+           <td th:text="${Product.getID()}"> </td>
+           <td th:text="${Product.getName()}"></td>
+           <td th:text="${Product.getDescription()}"> </td>
+           <td th:text="${Product.getPrice()}"></td>
+           
+        </tr>
+        </tbody>
+
+
+	</table>
+
+        <h5 th:text=" 'Amount Paid :'+${total}"></h5>
+    </div>
+    </div>
+    <a class="btn btn-primary" href="/shop">Shop more</a>
+
+	</div>
+		
+
+
+
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+</body>
+
+</html>
