@@ -94,7 +94,11 @@
 						  <option th:each="Category : ${listcat}" 
 						  th:text="${Category.getName()}" th:value="${Category.getID()}"></option>
 						</select><br>
-						 <label for="exampleFormControlSelect1">Show Item for Shopping</label><input class="form-check-input align" type="checkbox" value="" id="flexCheckDefault">
+						 <label for="exampleFormControlSelect1">Medicines visibility for online shopping :</label>
+						<select class="form-control" name="showitem" >
+						  <option >Yes</option>
+						  <option>No</option>
+						</select><br>
                         </div>
                   </div>
                  
@@ -122,6 +126,7 @@
 			<th>Price</th>
 			<th>Preview</th>
 			<th>Stock</th>
+			<th>Visibility on Website</th>
 			<th>Delete</th>
 			<th>Update</th>
             </tr>
@@ -135,6 +140,7 @@
                 <td th:text="${Product.getPrice()}"></td>
                 <td> <img class="images" th:src="@{'img/'+${Product.getImagename()}}"></td>
                 <td th:text="${Product.getWeight()}"></td>
+                <td th:text="${Product.getFlag()}"></td>
                 
                 <td><a th:href="@{'deleteprdconfirm/'+${Product.getID()}}"   data-toggle="modal" data-target="#exampleModal" th:attr="data-target='#exampleModal'+*{Product.getID()}" class="btn btn-danger">Delete</a></td>
                 <td><a th:href="@{'updateproduct/'+${Product.getID()}}" data-toggle="modal" data-target="#updateprd" th:attr="data-target='#updateprd'+*{Product.getID()}" class="btn btn-warning">Update</a></td>
@@ -194,6 +200,11 @@
 						<select class="form-control" name="listcat" >
 						  <option th:each="Category : ${listcat}" 
 						  th:text="${Category.getName()}" th:value="${Category.getID()}"></option>
+						</select><br>
+						<label for="exampleFormControlSelect1">Medicines visibility for online shopping :</label>
+						<select class="form-control" name="showitem " th:value="${Product.getFlag()}" >
+						  <option >Yes</option>
+						  <option>No</option>
 						</select><br>
                         </div>
                   </div>

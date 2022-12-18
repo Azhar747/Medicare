@@ -39,7 +39,7 @@ public class Shopcontrollers {
 		m.addAttribute("listcat", listcat);
 
 		List<Product> listprd = new ArrayList<>();
-		listprd = prdser.getallPrd();
+		listprd = prdser.getprdbyflag("Yes");
 		Path imgpath = Paths.get(uploadDir);
 		m.addAttribute("listprd", listprd);
 		System.out.println(uploadDir);

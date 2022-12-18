@@ -66,7 +66,7 @@ public class Productcontroller {
 	}
 	
 	@PostMapping("/SaveProduct")
-	public String saveproduct( Model m, @ModelAttribute("prd") Product prd,@RequestParam("img") MultipartFile multipart,@RequestParam("listcat") Category listcat,@RequestParam("description") String desc ) throws IOException{
+	public String saveproduct( Model m, @ModelAttribute("prd") Product prd,@RequestParam("img") MultipartFile multipart,@RequestParam("listcat") Category listcat,@RequestParam("description") String desc,@RequestParam("showitem") String flag ) throws IOException{
 		
 		
 		prd.setCategory(listcat);
@@ -80,7 +80,8 @@ public class Productcontroller {
 	
 			imageUUID=multipart.getOriginalFilename();
 		}
-		prd.setImagename(imageUUID);   
+		prd.setImagename(imageUUID);
+		prd.setFlag(flag);
 		prdser.saveproduct(prd);
 		
 		List<Product> listprd=new ArrayList<>();
@@ -141,10 +142,12 @@ public class Productcontroller {
 		return "PurchaseReport.html";
 	}
 	@PostMapping("updateproduct")
-	public String updateproduct(@RequestParam("id") Long id,@RequestParam("description")String description,@RequestParam("price") double price,@RequestParam("weight") double weight) {
-		prdser.updateprdbyid(id, description,price, weight);
+	public String updateproduct(@RequestParam("id") Long id,@RequestParam("description")String description,@RequestParam("price") double price,@RequestParam("weight") double weight,@RequestParam("showitem") String flag) {
+		prdser.updateprdbyid(id, description,price, weight,flag);
+		System.out.println("show visibility"+flag);
 		return "redirect:/Products";
 	}
+	
 	
 	
  

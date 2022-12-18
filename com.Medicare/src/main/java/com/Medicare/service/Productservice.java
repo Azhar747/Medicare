@@ -34,6 +34,11 @@ public class Productservice {
 		listprd = prdrepo.searchprd(id);
 		return listprd;
 	}
+	public List<Product> getprdbyflag(String flag) {
+		List<Product> listprd = new ArrayList<>();
+		listprd = prdrepo.searchprdbyflag(flag);
+		return listprd;
+	}
 
 	public Optional<Product> getprdbyid(Long id) {
 
@@ -52,9 +57,9 @@ public class Productservice {
 		return prdrepo.findbykeyword(keyword);
 	}
 
-	public void updateprdbyid(Long id, String Description,double price,double weight) {
+	public void updateprdbyid(Long id, String Description,double price,double weight,String flag) {
 
-		prdrepo.updateprdbyId(id, Description, price, weight);
+		prdrepo.updateprdbyId(id, Description, price, weight,flag);
 	}
 	
 }

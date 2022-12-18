@@ -27,7 +27,10 @@ public interface ProductsRepo extends CrudRepository<Product, Long>{
     
     @Transactional
     @Modifying
-    @Query("update Product set Description=:Description,price=:price,weight=:weight where ID=:id")
-    public void updateprdbyId(Long id, String Description,double price,double weight);
+    @Query("update Product set Description=:Description,price=:price,weight=:weight,flag=:flag where ID=:id")
+    public void updateprdbyId(Long id, String Description,double price,double weight,String flag);
+    
+    @Query("from Product where flag=:flag")	
+	public List<Product> searchprdbyflag(String flag);
 	
 }

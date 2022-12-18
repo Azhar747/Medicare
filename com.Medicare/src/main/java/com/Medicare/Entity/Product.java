@@ -23,8 +23,15 @@ public class Product {
 	private Category category;
 	private double price;
 	private double weight;
+	private String flag;
 	
 	
+	public String getFlag() {
+		return flag;
+	}
+	public void setFlag(String flag) {
+		this.flag = flag;
+	}
 	public double getPrice() {
 		return price;
 	}
@@ -70,7 +77,7 @@ public class Product {
 	@Override
 	public String toString() {
 		return "Product [ID=" + ID + ", name=" + name + ", Description=" + Description + ", imagename=" + imagename
-				+ ", category=" + category + ", price=" + price + ", weight=" + weight + "]";
+				+ ", category=" + category + ", price=" + price + ", weight=" + weight + ", flag=" + flag + "]";
 	}
 
 }
